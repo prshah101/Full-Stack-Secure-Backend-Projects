@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "47ce7740-9a4c-4a51-b89a-c26572170c9a",
+		"name": "SIT331",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33655477"
+	},
+	"item": [
+		{
+			"name": "https://{{api-host}}:{{port}}/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robot-commands",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robot-commands",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robot-commands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robotcommands/move",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robotcommands/move",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robotcommands",
+						"move"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robotcommands/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robotcommands/:id",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robotcommands",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robotcommands",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robotcommands?command=down",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robotcommands"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "down"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robotcommands/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"command\": \"your_updated_command_here\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robotcommands/:id?command=Diagonal",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robotcommands",
+						":id"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "Diagonal"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robot-map",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robot-map",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robot-map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robotmap/:coordinate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robotmap/:coordinate",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robotmap",
+						":coordinate"
+					],
+					"variable": [
+						{
+							"key": "coordinate",
+							"value": "6-6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robot-map",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"newSize\": 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robot-map?newSize=8",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robot-map"
+					],
+					"query": [
+						{
+							"key": "newSize",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://{{api-host}}:{{port}}/robotmap/1 (purposely incorrect)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{api-host}}:{{port}}/robotmap/1",
+					"protocol": "https",
+					"host": [
+						"{{api-host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"robotmap",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

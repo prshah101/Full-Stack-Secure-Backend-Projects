@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "+VA16addaK5skl7bgvyAjeBfXlz1xVqfwYEy74BOgK+VR5bCpA9lnYTeER3kKbADIimN4SRK9XdNhcVYPlPOTQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\4.1P\\robot-controller-api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
