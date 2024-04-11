@@ -35,4 +35,10 @@ public class Map
         ModifiedDate = DateTime.Now;
     }
 
+    public Map()
+    {
+
+    }
+
+
 }

@@ -1,78 +1,104 @@
-// using Npgsql;
-// using robot_controller_api.Persistence;
+using Npgsql;
+using robot_controller_api.Persistence;
 
-// namespace robot_controller_api.Persistence
-// {
-//     public class RobotCommandRepository : IRobotCommandDataAccess, IRepository
-//     {
+namespace robot_controller_api.Persistence
+{
+    public class RobotCommandRepository : IRobotCommandDataAccess, IRepository
+    {
 
-//         private IRepository _repo => this;
+        private IRepository _repo => this;
 
-//         public List<RobotCommand> GetRobotCommands()
-//         {
-//             var commands = _repo.ExecuteReader<RobotCommand>("SELECT * FROM public.robotcommand");
-//             return commands;
-//         }
+        public List<RobotCommand> GetRobotCommands()
+        {
+            var commands = _repo.ExecuteReader<RobotCommand>("SELECT * FROM public.robotcommand");
+            return commands;
+        }
 
-//         public List<RobotCommand> GetMoveCommandsOnly()
-//         {
-//             return _repo.ExecuteReader<RobotCommand>("SELECT * FROM public.robotcommand WHERE ismovecommand = @IsMoveCommand", new NpgsqlParameter("@IsMoveCommand", true));
-//         }
+        public List<RobotCommand> GetMoveCommandsOnly()
+        {
+            var sqlParams = new NpgsqlParameter[]
+            {
+                new NpgsqlParameter("@IsMoveCommand", true)
+            };
 
-//         public RobotCommand? GetRobotCommandById(int id)
-//         {
-//             return _repo.ExecuteReader<RobotCommand>("SELECT * FROM robotcommand WHERE id = @Id", new NpgsqlParameter("@Id", id)).FirstOrDefault();
-//         }
+            var result = _repo.ExecuteReader<RobotCommand>(
+                "SELECT * FROM public.robotcommand WHERE ismovecommand = @IsMoveCommand",
+                sqlParams
+            );
 
-//         public RobotCommand? GetRobotCommandByName(string name)
-//         {
-//             return _repo.ExecuteReader<RobotCommand>("SELECT * FROM robotcommand WHERE Name LIKE @Name", new NpgsqlParameter("@Name", name)).FirstOrDefault();
-//         }
+            return result;
+        }
 
-//         public void UpdateRobotCommand(int id, RobotCommand updatedCommand)
-//         {
-//             var sqlParams = new NpgsqlParameter[]{
-//             new("id", id),
-//             new("name", updatedCommand.Name),
-//             new("description", updatedCommand.Description ?? (object)DBNull.Value),
-//             new("ismovecommand", updatedCommand.IsMoveCommand)
-//             };
 
-//             var result = _repo.ExecuteReader<RobotCommand>(
-//                 "UPDATE robotcommand SET name=@name, description=@description, ismovecommand = @ismovecommand, modifieddate = current_timestamp WHERE id = @id RETURNING *; ",
-//             sqlParams)
-//             .Single();
-            
-//             //return result;
-//         }
+        public RobotCommand? GetRobotCommandById(int id)
+        {
+            var sqlParams = new NpgsqlParameter[]
+            {
+                 new NpgsqlParameter("@Id", id)
+            };
 
-//         public void AddRobotCommand(RobotCommand updatedCommand)
-//         {
-//             var sqlParams = new NpgsqlParameter[]
-//             {
-//                 new NpgsqlParameter("name", updatedCommand.Name),
-//                 new NpgsqlParameter("ismovecommand", updatedCommand.IsMoveCommand),
-//                 new NpgsqlParameter("createddate", DateTime.Now),
-//                 new NpgsqlParameter("modifieddate", DateTime.Now)
-//             };
+            return _repo.ExecuteReader<RobotCommand>(
+                "SELECT * FROM robotcommand WHERE id = @Id",
+                sqlParams
+            ).FirstOrDefault();
+        }
 
-//             _repo.ExecuteReader<RobotCommand>(
-//                 "INSERT INTO robotcommand (\"Name\", ismovecommand, createddate, modifieddate) VALUES (@name, @ismovecommand, @createddate, @modifieddate);",
-//                 sqlParams
-//             );
-//         }
+        public RobotCommand? GetRobotCommandByName(string name)
+        {
+            var sqlParams = new NpgsqlParameter[]
+            {
+             new NpgsqlParameter("@Name", name)
+            };
 
-//         public void DeleteRobotCommand(int id)
-//         {
-//             var sqlParams = new NpgsqlParameter[]
-//             {
-//                 new NpgsqlParameter("id", id)
-//             };
+            return _repo.ExecuteReader<RobotCommand>(
+                "SELECT * FROM robotcommand WHERE Name LIKE @Name",
+                sqlParams
+            ).FirstOrDefault();
+        }
 
-//             _repo.ExecuteReader<RobotCommand>(
-//                 "DELETE FROM robotcommand WHERE id = @id;",
-//                 sqlParams
-//             );
-//         }
-//     }
-// }
+
+        public void UpdateRobotCommand(int id, RobotCommand updatedCommand)
+        {
+            var sqlParams = new NpgsqlParameter[]{
+            new("id", id),
+            new("name", updatedCommand.Name),
+            new("description", updatedCommand.Description ?? (object)DBNull.Value),
+            new("ismovecommand", updatedCommand.IsMoveCommand)
+            };
+
+            var result = _repo.ExecuteReader<RobotCommand>(
+                "UPDATE robotcommand SET name=@name, description=@description, ismovecommand = @ismovecommand, modifieddate = current_timestamp WHERE id = @id RETURNING *; ",
+            sqlParams)
+            .Single();
+        }
+
+        public void AddRobotCommand(RobotCommand updatedCommand)
+        {
+            var sqlParams = new NpgsqlParameter[]
+            {
+                new NpgsqlParameter("name", updatedCommand.Name),
+                new NpgsqlParameter("ismovecommand", updatedCommand.IsMoveCommand),
+                new NpgsqlParameter("createddate", DateTime.Now),
+                new NpgsqlParameter("modifieddate", DateTime.Now)
+            };
+
+            _repo.ExecuteReader<RobotCommand>(
+                "INSERT INTO robotcommand (\"Name\", ismovecommand, createddate, modifieddate) VALUES (@name, @ismovecommand, @createddate, @modifieddate);",
+                sqlParams
+            );
+        }
+
+        public void DeleteRobotCommand(int id)
+        {
+            var sqlParams = new NpgsqlParameter[]
+            {
+                new NpgsqlParameter("id", id)
+            };
+
+            _repo.ExecuteReader<RobotCommand>(
+                "DELETE FROM robotcommand WHERE id = @id;",
+                sqlParams
+            );
+        }
+    }
+}
