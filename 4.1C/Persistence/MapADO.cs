@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace robot_controller_api.Persistence
 {
-    public class MapADO: IMapDataAccess
+    public class MapADO : IMapDataAccess
     {
         // Connection string for connecting to the database
         private const string CONNECTION_STRING = "Host=localhost;Username=postgres;Password=password;Database=sit331";
@@ -46,7 +46,7 @@ namespace robot_controller_api.Persistence
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
             // Execute SQL command to select square maps
-            using var cmd = new NpgsqlCommand("SELECT * FROM map WHERE columns = rows", conn); 
+            using var cmd = new NpgsqlCommand("SELECT * FROM map WHERE columns = rows", conn);
             using var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
