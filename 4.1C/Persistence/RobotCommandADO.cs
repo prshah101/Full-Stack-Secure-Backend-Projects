@@ -1,14 +1,14 @@
 using Npgsql;
 using robot_controller_api;
 namespace robot_controller_api.Persistence;
-public static class RobotCommandADO
+public class RobotCommandADO: IRobotCommandDataAccess
 {
     // Connection string for connecting to the database
     private const string CONNECTION_STRING =
    "Host=localhost;Username=postgres;Password=password;Database=sit331";
 
     // A method to retrieve all the robot commands
-    public static List<RobotCommand> GetRobotCommands()
+    public List<RobotCommand> GetRobotCommands()
     {
         // Create a list to store the retrieved robot commands
         var robotCommands = new List<RobotCommand>();
@@ -48,7 +48,7 @@ public static class RobotCommandADO
     }
 
     //A method to return only Move commands
-    public static List<RobotCommand> GetMoveCommandsOnly()
+    public List<RobotCommand> GetMoveCommandsOnly()
     {
         // Create a list to store the retrieved robot commands
         var robotCommands = new List<RobotCommand>();
@@ -87,7 +87,7 @@ public static class RobotCommandADO
     }
 
     // A method to retrieve a robot commands by id
-    public static RobotCommand? GetRobotCommandById(int id)
+    public RobotCommand? GetRobotCommandById(int id)
     {
         using var conn = new NpgsqlConnection(CONNECTION_STRING);
         conn.Open();
@@ -121,7 +121,7 @@ public static class RobotCommandADO
     }
 
     // A method to retrieve a robot commands by Name
-    public static RobotCommand? GetRobotCommandByName(string Name)
+    public RobotCommand? GetRobotCommandByName(string Name)
     {
         using var conn = new NpgsqlConnection(CONNECTION_STRING);
         conn.Open();
@@ -156,7 +156,7 @@ public static class RobotCommandADO
 
 
     //Update the Robot Command
-    public static void UpdateRobotCommand(int id, RobotCommand updatedCommand)
+    public void UpdateRobotCommand(int id, RobotCommand updatedCommand)
     {
         using var conn = new NpgsqlConnection(CONNECTION_STRING);
         conn.Open();
@@ -173,7 +173,7 @@ public static class RobotCommandADO
     }
 
     //Method to insert a new Robot Command into the database
-    public static void AddRobotCommand(RobotCommand updatedCommand)
+    public void AddRobotCommand(RobotCommand updatedCommand)
     {
         int newId;
 
@@ -201,7 +201,7 @@ public static class RobotCommandADO
     }
 
     //Method to delete a Robot Command from database
-    public static void DeleteRobotCommand(int id)
+    public void DeleteRobotCommand(int id)
     {
         using var conn = new NpgsqlConnection(CONNECTION_STRING);
         conn.Open();

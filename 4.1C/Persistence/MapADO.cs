@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace robot_controller_api.Persistence
 {
-    public static class MapADO
+    public class MapADO: IMapDataAccess
     {
         // Connection string for connecting to the database
         private const string CONNECTION_STRING = "Host=localhost;Username=postgres;Password=password;Database=sit331";
 
         // Gets all maps from the database
-        public static List<Map> GetAllMaps()
+        public List<Map> GetAllMaps()
         {
             var maps = new List<Map>();
             // Establish a connection to the database
@@ -40,7 +40,7 @@ namespace robot_controller_api.Persistence
         }
 
         // Retrieve square maps only (where columns equal rows) from the database
-        public static List<Map> GetSquareMapsOnly()
+        public List<Map> GetSquareMapsOnly()
         {
             var maps = new List<Map>();
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -65,7 +65,7 @@ namespace robot_controller_api.Persistence
         }
 
         // Retrieve a map by its ID from the database
-        public static Map GetMapById(int id)
+        public Map GetMapById(int id)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
@@ -88,7 +88,7 @@ namespace robot_controller_api.Persistence
         }
 
         // Retrieve a map by its name from the database
-        public static Map GetMapByName(string Name)
+        public Map GetMapByName(string Name)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
@@ -112,7 +112,7 @@ namespace robot_controller_api.Persistence
 
 
         // Update an existing map in the database
-        public static void UpdateMap(int id, Map updatedMap)
+        public void UpdateMap(int id, Map updatedMap)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
@@ -126,7 +126,7 @@ namespace robot_controller_api.Persistence
         }
 
         // Add a new map to the database
-        public static void AddMap(Map newMap)
+        public void AddMap(Map newMap)
         {
             int newId;
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -152,7 +152,7 @@ namespace robot_controller_api.Persistence
         }
 
         // Delete a map from the database by its ID
-        public static void DeleteMap(int id)
+        public void DeleteMap(int id)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
