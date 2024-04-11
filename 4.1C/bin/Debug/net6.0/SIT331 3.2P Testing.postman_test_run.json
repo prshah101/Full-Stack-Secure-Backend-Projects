@@ -1,0 +1,308 @@
+{
+	"id": "df380ba1-1382-420d-8716-a38406597e2f",
+	"name": "SIT331 3.2P Testing",
+	"timestamp": "2024-03-20T05:45:38.733Z",
+	"collection_id": "33655477-e865590a-2ae3-4e8f-a8dd-04e15213b6fc",
+	"folder_id": 0,
+	"environment_id": "33655477-8473dfc2-82b0-4806-9aaf-5f6541fab65b",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-20T05:45:36.349Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "b40a5bd1-ccc4-492d-9269-a34abefdc36d",
+			"name": "https://{{api-host}}:{{port}}/api/robot-commands",
+			"url": "https://localhost:7166/api/robot-commands",
+			"time": 421,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				421
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "974e99ea-b26f-454c-82a5-78221aaecee4",
+			"name": "https://{{api-host}}:{{port}}/api/robot-commands/move",
+			"url": "https://localhost:7166/api/robot-commands/move",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8dab3106-c044-4e32-a270-e8384c55a6ed",
+			"name": "https://{{api-host}}:{{port}}/api/robot-commands/:id",
+			"url": "https://localhost:7166/api/robot-commands/1",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				25
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3025ec07-7ccd-47ae-a04c-a05188bddf9e",
+			"name": "https://{{api-host}}:{{port}}/api/robot-commands/Down",
+			"url": "https://localhost:7166/api/robot-commands/",
+			"time": 88,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				88
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "528615df-aad0-4a9b-8ba1-11fcaeb80d86",
+			"name": "https://{{api-host}}:{{port}}/robotcommands/:id/Diagonal",
+			"url": "https://localhost:7166/api/robot-commands/3",
+			"time": 6,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c0db6e39-9b79-42b9-8fc6-3fead76b814a",
+			"name": "https://{{api-host}}:{{port}}/api/robot-commands/:id",
+			"url": "https://localhost:7166/api/robot-commands/6",
+			"time": 5,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f2bd6c49-a1c5-4d42-a710-c9040c7bb1c7",
+			"name": "https://{{api-host}}:{{port}}/api/maps",
+			"url": "https://localhost:7166/api/maps",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "90cb2058-0aab-4629-a801-8dacc7cf0d21",
+			"name": "https://{{api-host}}:{{port}}/api/maps/square",
+			"url": "https://localhost:7166/api/maps/square",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "386d866b-50e8-4066-9165-104d0bbf6eac",
+			"name": "https://{{api-host}}:{{port}}/api/maps/:id",
+			"url": "https://localhost:7166/api/maps/1",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4a85a981-5060-4da3-a07f-4b9c1a76e1d3",
+			"name": "https://{{api-host}}:{{port}}/api/maps",
+			"url": "https://localhost:7166/api/maps",
+			"time": 6,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "efdda858-cb5a-4ad5-8955-5d420731106b",
+			"name": "https://{{api-host}}:{{port}}/api/maps/:id",
+			"url": "https://localhost:7166/api/maps/1",
+			"time": 4,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e182b150-df79-42cb-8198-4126d1fdb7c2",
+			"name": "https://{{api-host}}:{{port}}}/api/maps/:id",
+			"url": "https://localhost:7166/api/maps/3",
+			"time": 5,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d7e15d3e-49e3-4cbb-b33d-fad81ea7c2f7",
+			"name": "https://{{api-host}}:{{port}}/api/maps/:id/1-1",
+			"url": "https://localhost:7166/api/maps/1/1-1",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 599,
+	"collection": {
+		"requests": [
+			{
+				"id": "b40a5bd1-ccc4-492d-9269-a34abefdc36d",
+				"method": "GET"
+			},
+			{
+				"id": "974e99ea-b26f-454c-82a5-78221aaecee4",
+				"method": "GET"
+			},
+			{
+				"id": "8dab3106-c044-4e32-a270-e8384c55a6ed",
+				"method": "GET"
+			},
+			{
+				"id": "3025ec07-7ccd-47ae-a04c-a05188bddf9e",
+				"method": "POST"
+			},
+			{
+				"id": "528615df-aad0-4a9b-8ba1-11fcaeb80d86",
+				"method": "PUT"
+			},
+			{
+				"id": "c0db6e39-9b79-42b9-8fc6-3fead76b814a",
+				"method": "DELETE"
+			},
+			{
+				"id": "f2bd6c49-a1c5-4d42-a710-c9040c7bb1c7",
+				"method": "GET"
+			},
+			{
+				"id": "90cb2058-0aab-4629-a801-8dacc7cf0d21",
+				"method": "GET"
+			},
+			{
+				"id": "386d866b-50e8-4066-9165-104d0bbf6eac",
+				"method": "GET"
+			},
+			{
+				"id": "4a85a981-5060-4da3-a07f-4b9c1a76e1d3",
+				"method": "POST"
+			},
+			{
+				"id": "efdda858-cb5a-4ad5-8955-5d420731106b",
+				"method": "PUT"
+			},
+			{
+				"id": "e182b150-df79-42cb-8198-4126d1fdb7c2",
+				"method": "DELETE"
+			},
+			{
+				"id": "d7e15d3e-49e3-4cbb-b33d-fad81ea7c2f7",
+				"method": "GET"
+			}
+		]
+	}
+}

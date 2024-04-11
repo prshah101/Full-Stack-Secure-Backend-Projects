@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ju3ToHI1pcOudER6m87MmaCKdq7WHORtmLNLqgmp2wZ3ln9eUa+6hZmrZlgI9qGow8LH+/BmryBGtI2/OAtNsw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.1C\\robot-controller-api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\fastmember.signed\\1.5.0\\fastmember.signed.1.5.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
