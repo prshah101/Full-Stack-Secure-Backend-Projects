@@ -4,21 +4,25 @@ using System.Collections.Generic;
 
 namespace robot_controller_api.Persistence
 {
+    // This class implements data access operations for maps using ADO.NET
     public class MapRepository : IMapDataAccess, IRepository
     {
         private IRepository _repo => this;
 
+        // Method to retrieve all maps from the database
         public List<Map> GetAllMaps()
         {
             var maps = _repo.ExecuteReader<Map>("SELECT * FROM public.map");
             return maps;
         }
 
+        // Method to retrieve square maps only (where columns equal rows) from the database
         public List<Map> GetSquareMapsOnly()
         {
             return _repo.ExecuteReader<Map>("SELECT * FROM map WHERE columns = rows");
         }
 
+        // Method to retrieve a map from the database, based on its ID
         public Map? GetMapById(int id)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -32,7 +36,7 @@ namespace robot_controller_api.Persistence
             ).FirstOrDefault();
         }
 
-
+        // Method to retrieve a map from the database, based on its name 
         public Map? GetMapByName(string name)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -45,7 +49,8 @@ namespace robot_controller_api.Persistence
                 sqlParams
             ).FirstOrDefault();
         }
-
+        
+        // Method to add a new map to the database
         public void AddMap(Map newMap)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -64,7 +69,7 @@ namespace robot_controller_api.Persistence
             );
         }
 
-
+        // Method to update an existing map in the database
         public void UpdateMap(int id, Map updatedMap)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -83,6 +88,7 @@ namespace robot_controller_api.Persistence
             );
         }
 
+        // Method to delete a map from the database by its ID
         public void DeleteMap(int id)
         {
             var sqlParams = new NpgsqlParameter[]

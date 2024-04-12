@@ -35,7 +35,8 @@ public class RobotCommand
                 CreatedDate = createdDate;
                 ModifiedDate = modifiedDate;
         }
-
+        
+        //Default constructor, so that methods in RobotCommandRepository.cs can create instances of RobotCommand internally
         public RobotCommand()
         {
         }

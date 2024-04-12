@@ -3,17 +3,20 @@ using robot_controller_api.Persistence;
 
 namespace robot_controller_api.Persistence
 {
+     // This class implements data access operations for robot commands using ADO.NET  
     public class RobotCommandRepository : IRobotCommandDataAccess, IRepository
     {
 
         private IRepository _repo => this;
 
+        // Method to retrieve all robot commands from the database
         public List<RobotCommand> GetRobotCommands()
         {
             var commands = _repo.ExecuteReader<RobotCommand>("SELECT * FROM public.robotcommand");
             return commands;
         }
 
+        // Method to retrieve only move commands from the database
         public List<RobotCommand> GetMoveCommandsOnly()
         {
             var sqlParams = new NpgsqlParameter[]
@@ -29,7 +32,7 @@ namespace robot_controller_api.Persistence
             return result;
         }
 
-
+        // Method to retrieve a robot command from the database, based on its ID 
         public RobotCommand? GetRobotCommandById(int id)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -43,6 +46,7 @@ namespace robot_controller_api.Persistence
             ).FirstOrDefault();
         }
 
+        // Method to retrieve a robot command from the database, based on its name 
         public RobotCommand? GetRobotCommandByName(string name)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -56,7 +60,7 @@ namespace robot_controller_api.Persistence
             ).FirstOrDefault();
         }
 
-
+        // Method to update an existing robot command in the database, based on id
         public void UpdateRobotCommand(int id, RobotCommand updatedCommand)
         {
             var sqlParams = new NpgsqlParameter[]{
@@ -72,6 +76,7 @@ namespace robot_controller_api.Persistence
             .Single();
         }
 
+        // Method to add a new robot command to the database
         public void AddRobotCommand(RobotCommand updatedCommand)
         {
             var sqlParams = new NpgsqlParameter[]
@@ -89,6 +94,7 @@ namespace robot_controller_api.Persistence
             );
         }
 
+        // Method to delete a robot command from the database by its ID
         public void DeleteRobotCommand(int id)
         {
             var sqlParams = new NpgsqlParameter[]

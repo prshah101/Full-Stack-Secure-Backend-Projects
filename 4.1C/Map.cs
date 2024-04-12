@@ -34,7 +34,8 @@ public class Map
         CreatedDate = DateTime.Now;
         ModifiedDate = DateTime.Now;
     }
-
+    
+    //Default constructor, so that methods in MapRepository.cs can create instances of RobotCommand internally
     public Map()
     {
 
