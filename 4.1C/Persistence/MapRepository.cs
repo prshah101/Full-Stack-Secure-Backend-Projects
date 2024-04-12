@@ -54,8 +54,8 @@ namespace robot_controller_api.Persistence
                 new NpgsqlParameter("Rows", newMap.Rows),
                 new NpgsqlParameter("Name", newMap.Name),
                 new NpgsqlParameter("Description", newMap.Description ?? (object)DBNull.Value),
-                new NpgsqlParameter("CreatedDate", newMap.CreatedDate),
-                new NpgsqlParameter("ModifiedDate", newMap.ModifiedDate)
+                new NpgsqlParameter("CreatedDate", DateTime.Now),
+                new NpgsqlParameter("ModifiedDate", DateTime.Now)
             };
 
             _repo.ExecuteReader<Map>(

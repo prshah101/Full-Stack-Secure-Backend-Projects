@@ -67,7 +67,7 @@ namespace robot_controller_api.Persistence
             };
 
             var result = _repo.ExecuteReader<RobotCommand>(
-                "UPDATE robotcommand SET name=@name, description=@description, ismovecommand = @ismovecommand, modifieddate = current_timestamp WHERE id = @id RETURNING *; ",
+                "UPDATE robotcommand SET Name=@name, description=@description, ismovecommand = @ismovecommand, modifieddate = current_timestamp WHERE id = @id RETURNING *; ",
             sqlParams)
             .Single();
         }
@@ -76,14 +76,15 @@ namespace robot_controller_api.Persistence
         {
             var sqlParams = new NpgsqlParameter[]
             {
-                new NpgsqlParameter("name", updatedCommand.Name),
-                new NpgsqlParameter("ismovecommand", updatedCommand.IsMoveCommand),
-                new NpgsqlParameter("createddate", DateTime.Now),
-                new NpgsqlParameter("modifieddate", DateTime.Now)
+                new NpgsqlParameter("Name", updatedCommand.Name),
+                new NpgsqlParameter("Ismovecommand", updatedCommand.IsMoveCommand),
+                new NpgsqlParameter("Description", updatedCommand.Description ?? (object)DBNull.Value),
+                new NpgsqlParameter("Createddate", DateTime.Now),
+                new NpgsqlParameter("Modifieddate", DateTime.Now)
             };
 
             _repo.ExecuteReader<RobotCommand>(
-                "INSERT INTO robotcommand (\"Name\", ismovecommand, createddate, modifieddate) VALUES (@name, @ismovecommand, @createddate, @modifieddate);",
+                "INSERT INTO robotcommand (name, ismovecommand, description, createddate, modifieddate) VALUES (@Name, @Ismovecommand, @Description, @Createddate, @Modifieddate);",
                 sqlParams
             );
         }
