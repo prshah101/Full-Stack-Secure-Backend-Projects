@@ -121,11 +121,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.1C\\robot-controller-api.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.2C\\robot-controller-api.csproj",
       "projectName": "robot-controller-api",
-      "projectPath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.1C\\robot-controller-api.csproj",
+      "projectPath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.2C\\robot-controller-api.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.1C\\obj\\",
+      "outputPath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.2C\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
