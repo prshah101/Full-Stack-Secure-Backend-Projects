@@ -15,10 +15,10 @@ public partial class RobotContext : DbContext
         : base(options)
     {
     }
-
+    
     public virtual DbSet<Map> Maps { get; set; }
 
-    public virtual DbSet<Robotcommand> Robotcommands { get; set; }
+    public virtual DbSet<RobotCommand> RobotCommands { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -57,7 +57,7 @@ public partial class RobotContext : DbContext
             entity.Property(e => e.Rows).HasColumnName("rows");
         });
 
-        modelBuilder.Entity<Robotcommand>(entity =>
+        modelBuilder.Entity<RobotCommand>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("pk_robotcommand");
 
@@ -66,14 +66,14 @@ public partial class RobotContext : DbContext
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
-            entity.Property(e => e.Createddate)
+            entity.Property(e => e.CreatedDate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("createddate");
             entity.Property(e => e.Description)
                 .HasMaxLength(800)
                 .HasColumnName("description");
-            entity.Property(e => e.Ismovecommand).HasColumnName("ismovecommand");
-            entity.Property(e => e.Modifieddate)
+            entity.Property(e => e.IsMoveCommand).HasColumnName("ismovecommand");
+            entity.Property(e => e.ModifiedDate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("modifieddate");
             entity.Property(e => e.Name)

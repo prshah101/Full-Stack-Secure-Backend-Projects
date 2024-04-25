@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace robot_controller_api.Models;
 
-public partial class Robotcommand
+public partial class RobotCommand
 {
     public int Id { get; set; }
 

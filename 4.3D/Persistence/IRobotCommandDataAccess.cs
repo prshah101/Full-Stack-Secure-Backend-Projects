@@ -1,3 +1,5 @@
+using robot_controller_api.Models;
+
 namespace robot_controller_api.Persistence
 {
     // The interface to define data access operations for robot command entities

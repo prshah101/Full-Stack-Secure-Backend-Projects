@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "o9wLiSDNKB9bIlovT8U1/oxBi0cIiJEacCmj02DyZebcmET4GuQmMO5J3HsXzPenR+OR5xPLy2rp6hWoeO15gA==",
+  "dgSpecHash": "aZi8RK69ErUgvf7wLnAHcGvgMigjeCg8jzRkslgwWUHSVc6Q6tvk+Y2mWVdsquQgj1xgh9ds7AzkA8kD5Kn0EA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\4.2C\\robot-controller-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\fastmember.signed\\1.5.0\\fastmember.signed.1.5.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
-    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
   ],
   "logs": []
 }
