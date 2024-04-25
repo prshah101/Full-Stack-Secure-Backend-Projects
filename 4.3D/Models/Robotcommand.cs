@@ -11,7 +11,7 @@ public partial class RobotCommand
 
     public string? Description { get; set; }
 
-    public bool Ismovecommand { get; set; }
+    public bool IsMoveCommand { get; set; }
 
     public DateTime Createddate { get; set; }
 

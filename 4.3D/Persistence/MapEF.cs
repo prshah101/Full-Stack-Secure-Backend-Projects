@@ -33,13 +33,13 @@ namespace robot_controller_api.Persistence
         // Method to retrieve a map from the database, based on its ID
         public Map? GetMapById(int id)
         {
-            return (Map?)_robotContext.Maps.Where(x=>x.Id == id);
+            return (Map?)_robotContext.Maps.FirstOrDefault(x=>x.Id == id);
         }
 
         // Method to retrieve a map from the database, based on its name 
         public Map? GetMapByName(string name)
         {
-            return (Map?)_robotContext.Maps.Where(x=>x.Name == name);
+            return (Map?)_robotContext.Maps.FirstOrDefault(x=>x.Name == name);
         }
         
         // Method to add a new map to the database
@@ -61,10 +61,10 @@ namespace robot_controller_api.Persistence
             if (existingMap != null)
             {
                 // Update the properties of the existing command
-                existingMap.Name = existingMap.Name;
-                existingMap.Description = existingMap.Description;
-                existingMap.Columns = existingMap.Columns;
-                existingMap.Rows = existingMap.Rows;
+                existingMap.Name = updatedMap.Name;
+                existingMap.Description = updatedMap.Description;
+                existingMap.Columns = updatedMap.Columns;
+                existingMap.Rows = updatedMap.Rows;
                 existingMap.ModifiedDate = DateTime.Now; 
                 
                 // Save changes to the database

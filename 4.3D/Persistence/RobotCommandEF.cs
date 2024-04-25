@@ -32,13 +32,13 @@ namespace robot_controller_api.Persistence
         // Method to retrieve a robot command from the database, based on its ID 
         public RobotCommand? GetRobotCommandById(int id)
         {
-            return (RobotCommand?)_robotContext.RobotCommands.Where(x=>x.Id == id);
+            return (RobotCommand?)_robotContext.RobotCommands.FirstOrDefault(x=>x.Id == id);
         }
 
         // Method to retrieve a robot command from the database, based on its name 
         public RobotCommand? GetRobotCommandByName(string name)
         {
-            return (RobotCommand?)_robotContext.RobotCommands.Where(x=>x.Name == name);
+            return (RobotCommand?)_robotContext.RobotCommands.FirstOrDefault(x=>x.Name == name);
         }
 
         // Method to update an existing robot command in the database, based on id
@@ -64,22 +64,6 @@ namespace robot_controller_api.Persistence
         // Method to add a new robot command to the database
         public void AddRobotCommand(RobotCommand newCommand)
         {
-            // // Create a new RobotCommand object with the provided data
-            // var newCommand = new RobotCommand
-            // {
-            //     Name = updatedCommand.Name,
-            //     Description = updatedCommand.Description,
-            //     IsMoveCommand = updatedCommand.IsMoveCommand,
-            //     CreatedDate = DateTime.Now, 
-            //     ModifiedDate = DateTime.Now 
-            // };
-
-            // // Add the new command to the DbSet in the context
-            // _robotContext.RobotCommands.Add(newCommand);
-
-            // // Save changes to the database
-            // _robotContext.SaveChanges();
-
             _robotContext.RobotCommands.Add(newCommand);
             _robotContext.SaveChanges();
         }
