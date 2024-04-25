@@ -54,13 +54,13 @@ namespace robot_controller_api.Persistence
         public void UpdateMap(int id, Map updatedMap)
         {
 
-            // Find the existing robot command by its ID
+            // Find the existing map by its ID
             var existingMap = _robotContext.Maps.FirstOrDefault(c => c.Id == id);
             
-            // If the command with the given ID is found
+            // If the map with the given ID is found
             if (existingMap != null)
             {
-                // Update the properties of the existing command
+                // Update the properties of the existing map
                 existingMap.Name = updatedMap.Name;
                 existingMap.Description = updatedMap.Description;
                 existingMap.Columns = updatedMap.Columns;
@@ -75,13 +75,13 @@ namespace robot_controller_api.Persistence
         // Method to delete a map from the database by its ID
         public void DeleteMap(int id)
         {
-            // Find the existing robot command by its ID
+            // Find the existing map by its ID
             var mapToDelete = _robotContext.Maps.FirstOrDefault(c => c.Id == id);
 
-            // If the command with the given ID is found
+            // If the Map with the given ID is found
             if (mapToDelete != null)
             {
-                // Remove the command from the DbSet in the context
+                // Remove the map from the DbSet in the context
                 _robotContext.Maps.Remove(mapToDelete);
 
                 // Save changes to the database
