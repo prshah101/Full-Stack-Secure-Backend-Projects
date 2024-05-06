@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>robot-controller-api</name>
+    </assembly>
+    <members>
+        <member name="M:robot_controller_api.Controllers.MapsController.GetAllMaps">
+            <summary>
+            Retrieves all maps.
+            </summary>
+            <returns>
+            A collection of all the maps.
+            </returns>
+            <response code="200">Returns Ok with the list of maps</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.MapsController.GetSquareMapsOnly">
+            <summary>
+            Retrieves only square maps.
+            </summary>
+            <returns>
+            A collection of maps that are square.
+            </returns>
+            <response code="200">Returns Ok with the list of maps that are square</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.MapsController.GetMapById(System.Int32)">
+            <summary>
+            Retrieves a map by its ID.
+            </summary>
+            <param name="id">The ID of the map to retrieve.</param>
+            <returns> The map if map is found.
+            </returns>
+            <response code="404">If the Map was not found</response>
+            <response code="200">Returns Ok with the map object</response>>
+        </member>
+        <member name="M:robot_controller_api.Controllers.MapsController.AddMap(robot_controller_api.Map)">
+             <summary>
+             Creates a map.
+             </summary>
+             <param name="newMap">A new map from the HTTP request.</param>
+             <returns>A newly created map</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/maps
+                 {
+                    "Columns": 5,
+                    "Rows": 6,
+                    "Name": "Map 5",
+                    "Description": " Not Square"
+                 }
+            
+             </remarks>
+             <response code="201">Returns the newly created map</response>
+             <response code="400">If the map is null, or addition fails</response>
+             <response code="409">If a map with the same name already exists.</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.MapsController.UpdateMap(System.Int32,robot_controller_api.Map)">
+             <summary>
+             Updates an existing map.
+             </summary>
+             <param name="id">The ID of the map to update.</param>
+             <param name="updatedMap">The updated map details from the HTTP request.</param>
+             <returns>NoContent if successful update for Map</returns>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/maps/:id
+                 {
+                    "Columns": 5,
+                    "Rows": 5,
+                    "Name": "Map 4"
+                 }
+            
+             </remarks>
+             <response code="404">If the map isn't found in database</response>
+             <response code="204">No Content if map is updated sucessfully</response>
+             <response code="400">If update failed.</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.MapsController.DeleteMap(System.Int32)">
+            <summary>
+            Deletes an existing map.
+            </summary>
+            <param name="id">The ID of the map to delete.</param>
+            <returns>NoContent if successful deletion.</returns>
+            <response code="404">If the map isn't found in database</response>
+            <response code="204">No Content if Map was deleted</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.MapsController.CheckCoordinate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            // Check whether the coordinate fits in a specific map.
+            </summary>
+            <param name="id">The ID of the map that the coordinate is checking it fits in.</param>
+            <param name="x">The x value of the coordinate.</param>
+            <param name="y">The y value of the coordinate.</param>
+            <returns>True if the coordinate fits in the map</returns>
+            <response code="400">If the coordinate values weren't negative</response>
+            <response code="404">A map that matches in the input id wasn't found</response>
+            <response code="200">Returns Ok with the boolean result of whether the coordinate is on the map</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.RobotCommandsController.GetAllRobotCommands">
+            <summary>
+            Retrieves all robot commands.
+            </summary>
+            <returns>
+            A collection of all robot commands.
+            </returns>
+            <response code="200">Returns Ok with the list of robot commands</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.RobotCommandsController.GetMoveCommandsOnly">
+            <summary>
+            Retrieves only robot commands that move the robot.
+            </summary>
+            <returns>
+            A collection of commands that move the robot.
+            </returns>
+            <response code="200">Returns Ok with the list of robot commands that move</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.RobotCommandsController.GetRobotCommandById(System.Int32)">
+            <summary>
+            Retrieves a robot command by its ID.
+            </summary>
+            <param name="id">The ID of the robot command to retrieve.</param>
+            <returns> The robot command object if robot command is found.
+            </returns>
+            <response code="404">If the RobotCommand was not found</response>
+            <response code="200">Returns Ok with the command object</response>>
+        </member>
+        <member name="M:robot_controller_api.Controllers.RobotCommandsController.AddRobotCommand(robot_controller_api.RobotCommand)">
+             <summary>
+             Creates a robot command.
+             </summary>
+             <param name="newCommand">A new robot command from the HTTP request.</param>
+             <returns>A newly created robot command</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/robot-commands
+                 {
+                    "Name": "DOWN",
+                    "IsMoveCommand": false
+                 }
+            
+             </remarks>
+             <response code="201">Returns the newly created robot command</response>
+             <response code="400">If the robot command is null, or addition fails</response>
+             <response code="409">If a robot command with the same name already exists.</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.RobotCommandsController.UpdateRobotCommand(System.Int32,robot_controller_api.RobotCommand)">
+             <summary>
+             Updates an existing robot command.
+             </summary>
+             <param name="id">The ID of the command to update.</param>
+             <param name="updatedCommand">The updated command details from the HTTP request.</param>
+             <returns>NoContent if successful update for Robot Command</returns>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/robot-commands/:id
+                 {
+                    "Name": "DIAGONAL",
+                    "Description": "Description of the new command",
+                    "IsMoveCommand": false
+                 }
+            
+             </remarks>
+             <response code="404">If the robot command isn't found in database</response>
+             <response code="204">No Content if Robot command is updated sucessfully</response>
+             <response code="400">If update failed.</response>
+        </member>
+        <member name="M:robot_controller_api.Controllers.RobotCommandsController.DeleteRobotCommand(System.Int32)">
+            <summary>
+            Deletes an existing robot command.
+            </summary>
+            <param name="id">The ID of the command to delete.</param>
+            <returns>NoContent if successful deletion.</returns>
+            <response code="404">If the robot command isn't found in database</response>
+            <response code="204">No Content if Robot command was deleted</response>
+        </member>
+        <member name="M:UserController.GetAllUsers">
+            <summary>
+            Retrieves all users.
+            </summary>
+            <returns>
+            A collection of all users.
+            </returns>
+            <response code="200">Returns Ok with the list of users</response>
+        </member>
+        <member name="M:UserController.GetAdminUsers">
+            <summary>
+            Retrieves only users that move are admins.
+            </summary>
+            <returns>
+            A collection of users that are admins.
+            </returns>
+            <response code="200">Returns Ok with the list of users that are admins</response>
+        </member>
+        <member name="M:UserController.GetUserById(System.Int32)">
+            <summary>
+            Retrieves a User by its ID.
+            </summary>
+            <param name="id">The ID of the User to retrieve.</param>
+            <returns> The User object if User is found.
+            </returns>
+            <response code="404">If the User was not found</response>
+            <response code="200">Returns Ok with the User object</response>>
+        </member>
+        <member name="M:UserController.AddUser(UserModel)">
+             <summary>
+             Creates a user.
+             </summary>
+             <param name="newUserModel">A new user from the HTTP request.</param>
+             <returns>A newly created user</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/users
+                 {
+                    "email": "example@example.com",
+                    "firstName": "Mary"
+                    "lastName": "Ann"
+                    "passwordHash": "password123",
+                    "description": "Some description",
+                    "role": "Admin"
+                 }
+            
+             </remarks>
+             <response code="201">Returns the newly created User</response>
+             <response code="400">If the User is null, or addition fails</response>
+             <response code="409">If a User with the same email already exists.</response>
+        </member>
+        <member name="M:UserController.UpdateUser(System.Int32,UserModel)">
+             <summary>
+             Updates an existing User.
+             </summary>
+             <param name="id">The ID of the User to update.</param>
+             <param name="updatedUser">The updated User details from the HTTP request.</param>
+             <returns>NoContent if successful update for User</returns>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/users/:id
+                 {
+                    "firstName": "John",
+                    "lastName": "Sharma",
+                    "passwordHash": "password123",
+                    "description": "Some description2",
+                    "role": "User"
+                 }
+            
+             </remarks>
+             <response code="404">If the User isn't found in database</response>
+             <response code="204">No Content if User is updated sucessfully</response>
+             <response code="400">If update failed.</response>
+        </member>
+        <member name="M:UserController.DeleteUser(System.Int32)">
+            <summary>
+            Deletes an existing User.
+            </summary>
+            <param name="id">The ID of the User to delete.</param>
+            <returns>NoContent if successful deletion.</returns>
+            <response code="404">If the User isn't found in database</response>
+            <response code="204">No Content if User was deleted</response>
+        </member>
+        <member name="M:UserController.UpdateUserCredentials(System.Int32,LoginModel)">
+             <summary>
+             Updates an existing User's credentials.
+             </summary>
+             <param name="id">The ID of the User to update.</param>
+             <param name="loginModel">The updated User login details from the HTTP request.</param>
+             <returns>A newly updated User</returns>
+             <remarks>
+             Sample request:
+            
+                 PATCH /api/users/:id
+                 {
+                    "email": "example@example2.com",
+                    "password": "Password"
+                 }
+            
+             </remarks>
+             <response code="404">If the User isn't found in database</response>
+             <response code="400">If update failed.</response>
+             <response code="201">Returns the newly updated User</response>
+        </member>
+    </members>
+</doc>

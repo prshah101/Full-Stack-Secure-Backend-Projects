@@ -1,0 +1,6 @@
+This task highly related to most ULOs.
+(ULO1) The Swagger technology was researched and implemented for documentation purposes.
+(ULO2) The Full API was further developed by documenting it in detail, which is good professional practice.
+(ULO3) This documentation enables the project to have continuous delivery, since with it other programmers can understand the program and make edits.
+(ULO4) Ideas were articulated in the documentation and commenting, as well as in the video interview.
+(ULO5) The learning was reflected on while writing the documentation.
