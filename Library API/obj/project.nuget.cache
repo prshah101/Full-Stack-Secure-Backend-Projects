@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "akOgIYsITIkgrl3vYeiI/i191eFVtDsuTFde7A3It0zLub1Mj1mT7QOiEWhZaZ6HpysbAKK7zryvNkk3yf1GuQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\Helping Others\\Demo\\LibraryControllerApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\npgsql\\6.0.5\\npgsql.6.0.5.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
