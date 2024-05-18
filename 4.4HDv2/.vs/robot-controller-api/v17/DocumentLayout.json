@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{20509A1E-B520-49EB-A61E-82EDE78A7DAB}|robot-controller-api.csproj|c:\\users\\dell\\onedrive - deakin university\\2024 sem 1\\sit331 - back end dev\\3.2p\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20509A1E-B520-49EB-A61E-82EDE78A7DAB}|robot-controller-api.csproj|solutionrelative:map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20509A1E-B520-49EB-A61E-82EDE78A7DAB}|robot-controller-api.csproj|c:\\users\\dell\\onedrive - deakin university\\2024 sem 1\\sit331 - back end dev\\3.2p\\controllers\\mapscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20509A1E-B520-49EB-A61E-82EDE78A7DAB}|robot-controller-api.csproj|solutionrelative:controllers\\mapscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20509A1E-B520-49EB-A61E-82EDE78A7DAB}|robot-controller-api.csproj|c:\\users\\dell\\onedrive - deakin university\\2024 sem 1\\sit331 - back end dev\\3.2p\\controllers\\robotcommandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20509A1E-B520-49EB-A61E-82EDE78A7DAB}|robot-controller-api.csproj|solutionrelative:controllers\\robotcommandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Map.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\Map.cs",
+              "RelativeDocumentMoniker": "Map.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\Map.cs",
+              "RelativeToolTip": "Map.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T12:29:05.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RobotCommandsController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\Controllers\\RobotCommandsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RobotCommandsController.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\Controllers\\RobotCommandsController.cs",
+              "RelativeToolTip": "Controllers\\RobotCommandsController.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAA5wIsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T12:26:54.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MapsController.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\Controllers\\MapsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MapsController.cs",
+              "ToolTip": "C:\\Users\\Dell\\OneDrive - Deakin University\\2024 Sem 1\\SIT331 - Back end dev\\3.2P\\Controllers\\MapsController.cs",
+              "RelativeToolTip": "Controllers\\MapsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-18T12:25:49.047Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

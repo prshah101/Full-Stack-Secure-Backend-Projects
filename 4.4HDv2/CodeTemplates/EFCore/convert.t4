@@ -1,0 +1,19 @@
+<#@ template language="C#" #>
+<#@ output extension=".txt" #>
+<#@ import namespace="System.Text" #>
+
+<#+
+string ToPascalCase(string snakeCase)
+{
+    var parts = snakeCase.Split('_');
+    var result = new StringBuilder();
+    foreach (var part in parts)
+    {
+        if (part.Length > 0)
+        {
+            result.Append(char.ToUpper(part[0]) + part.Substring(1).ToLower());
+        }
+    }
+    return result.ToString();
+}
+#>

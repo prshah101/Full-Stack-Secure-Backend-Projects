@@ -1,0 +1,101 @@
+GetRobotCommands:
+      Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT r.id, r.createddate, r.description, r.ismovecommand, r.modifieddate, r.name
+      FROM robotcommand AS r
+      ORDER BY r.iddbug: 25/04/2024 22:29:47.056 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking)
+
+GetMoveCommandsOnly:
+    Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT r.id, r.createddate, r.description, r.ismovecommand, r.modifieddate, r.name
+      FROM robotcommand AS r
+      WHERE r.ismovecommanddbug: 25/04/2024 22:31:11.765 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking)
+
+GetRobotCommandById:
+    Executed DbCommand (31ms) [Parameters=[@__id_0='1'], CommandType='Text', CommandTimeout='30']
+        SELECT r.id, r.createddate, r.description, r.ismovecommand, r.modifieddate, r.name
+        FROM robotcommand AS r
+        WHERE r.id = @__id_0
+        LIMIT 1dbug: 25/04/2024 22:31:48.820 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking)
+
+GetRobotCommandByName:
+   Executed DbCommand (5ms) [Parameters=[@__name_0='DOWN2'], CommandType='Text', CommandTimeout='30']
+      SELECT r.id, r.createddate, r.description, r.ismovecommand, r.modifieddate, r.name
+      FROM robotcommand AS r
+      WHERE r.name = @__name_0
+      LIMIT 1dbug: 25/04/2024 22:32:28.024 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command)
+
+AddRobotCommand:
+    Executed DbCommand (8ms) [Parameters=[@p0='0001-01-01T00:00:00.0000000', @p1=NULL, @p2='False', @p3='0001-01-01T00:00:00.0000000', @p4='DOWN2' (Nullable = false)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO robotcommand (createddate, description, ismovecommand, modifieddate, name)
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING id;dbug: 25/04/2024 22:32:28.139 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking)
+
+    Executed DbCommand (2ms) [Parameters=[@__name_0='DOWN2'], CommandType='Text', CommandTimeout='30']
+        SELECT r.id, r.createddate, r.description, r.ismovecommand, r.modifieddate, r.name
+        FROM robotcommand AS r
+        WHERE r.name = @__name_0
+        LIMIT 1dbug: 25/04/2024 22:32:28.163 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command)
+
+UpdateRobotCommand:
+    Executing DbCommand [Parameters=[@p3='4', @p0='Description of the new command', @p1='2024-04-25T22:35:45.5377710+10:00', @p2='DIAGONAL' (Nullable = false)], CommandType='Text', CommandTimeout='30']
+      UPDATE robotcommand SET description = @p0, modifieddate = @p1, name = @p2
+      WHERE id = @p3;info: 25/04/2024 22:35:45.577 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command)
+
+
+DeleteRobotCommand:
+    Executed DbCommand (4ms) [Parameters=[@p0='4'], CommandType='Text', CommandTimeout='30']
+      DELETE FROM robotcommand
+      WHERE id = @p0;dbug: 25/04/2024 22:36:48.120 RelationalEventId.DataReaderClosing[20301] (Microsoft.EntityFrameworkCore.Database.Command)
+
+GetAllMaps:
+      Executed DbCommand (50ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m.columns, m.createddate, m.description, m.modifieddate, m.name, m.rows
+      FROM map AS m
+      ORDER BY m.id
+
+GetSquareMapsOnly:
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m.columns, m.createddate, m.description, m.modifieddate, m.name, m.rows
+      FROM map AS m
+      WHERE m.columns = m.rows
+
+GetMapById:
+      Executed DbCommand (22ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']   
+      SELECT m.id, m.columns, m.createddate, m.description, m.modifieddate, m.name, m.rows
+      FROM map AS m
+      WHERE m.id = @__id_0
+      LIMIT 1
+
+GetMapByName:
+      Executed DbCommand (3ms) [Parameters=[@__name_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m.columns, m.createddate, m.description, m.modifieddate, m.name, m.rows
+      FROM map AS m
+      WHERE m.name = @__name_0
+      LIMIT 1
+
+AddMap:
+     Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?', @p3='?' (DbType = DateTime2), @p4='?', @p5='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO map (columns, createddate, description, modifieddate, name, rows)
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING id;
+
+      Executed DbCommand (1ms) [Parameters=[@__name_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m.columns, m.createddate, m.description, m.modifieddate, m.name, m.rows
+      FROM map AS m
+      WHERE m.name = @__name_0
+      LIMIT 1
+UpdateMap:
+
+      Executed DbCommand (5ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?', @p1='?' (DbType = DateTime2), @p2='?', @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE map SET description = @p0, modifieddate = @p1, name = @p2, rows = @p3
+      WHERE id = @p4;
+
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT m.id, m.columns, m.createddate, m.description, m.modifieddate, m.name, m.rows
+      FROM map AS m
+      ORDER BY m.id
+
+DeleteMap:
+      Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']        
+      DELETE FROM map
+      WHERE id = @p0;

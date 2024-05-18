@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using robot_controller_api.Models;
+
+
+namespace robot_controller_api.Persistence;
+
+public partial class RobotContext : DbContext
+{
+    public RobotContext()
+    {
+    }
+
+    public RobotContext(DbContextOptions<RobotContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<Map> Maps { get; set; }
+
+    public virtual DbSet<Robotcommand> Robotcommands { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("Host=localhost;Database=sit331;Username=postgres;Password=password");
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Map>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("map");
+
+            entity.Property(e => e.Columns).HasColumnName("columns");
+            entity.Property(e => e.CreatedDate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_date");
+            entity.Property(e => e.Description)
+                .HasMaxLength(800)
+                .HasColumnName("description");
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id");
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("modified_date");
+            entity.Property(e => e.Name).HasMaxLength(50);
+            entity.Property(e => e.Rows).HasColumnName("rows");
+        });
+
+        modelBuilder.Entity<RobotCommand>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("pk_robot_command");
+
+            entity.ToTable("robot_command");
+
+            entity.Property(e => e.Id)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("id");
+            entity.Property(e => e.CreatedDate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_date");
+            entity.Property(e => e.Description)
+                .HasMaxLength(800)
+                .HasColumnName("description");
+            entity.Property(e => e.IsMoveCommand).HasColumnName("is_move_command");
+            entity.Property(e => e.ModifiedDate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("modified_date");
+            entity.Property(e => e.Name).HasMaxLength(50);
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}
