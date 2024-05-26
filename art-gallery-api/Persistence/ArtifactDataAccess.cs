@@ -8,7 +8,7 @@ namespace art_gallery_api.Persistence
     {
         private const string CONNECTION_STRING = "Host=localhost;Username=postgres;Password=password;Database=diy";
 
-        
+        //Getting All Artifacts
         public static List<Artifact> GetAllArtifacts()
         {
             var artifacts = new List<Artifact>();
@@ -35,6 +35,7 @@ namespace art_gallery_api.Persistence
             return artifacts;
         }
 
+        //Get an Artifact by ID
         public static Artifact GetArtifactById(int id)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -62,6 +63,7 @@ namespace art_gallery_api.Persistence
             }
         }
 
+        //Get an Artifact by Name
         public static Artifact GetArtifactByName(string Name)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -89,6 +91,7 @@ namespace art_gallery_api.Persistence
             }
         }
 
+        //Add an Artifact
         public static void AddArtifact(Artifact newArtifact)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -100,13 +103,13 @@ namespace art_gallery_api.Persistence
             cmd.Parameters.AddWithValue("@Description", newArtifact.Description);
             cmd.Parameters.AddWithValue("@Artist", newArtifact.Artist);
             cmd.Parameters.AddWithValue("@Category", newArtifact.Category);
-            cmd.Parameters.AddWithValue("@CreatedDate", newArtifact.CreatedDate);
-            cmd.Parameters.AddWithValue("@ModifiedDate", newArtifact.ModifiedDate);
+            cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+            cmd.Parameters.AddWithValue("@ModifiedDate", DateTime.Now);
 
             cmd.ExecuteNonQuery();
         }
 
-
+        //Update an Artifact
         public static void UpdateArtifact(int id, Artifact updatedArtifact)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -119,11 +122,12 @@ namespace art_gallery_api.Persistence
             cmd.Parameters.AddWithValue("@Description", updatedArtifact.Description);
             cmd.Parameters.AddWithValue("@Artist", updatedArtifact.Artist);
             cmd.Parameters.AddWithValue("@Category", updatedArtifact.Category);
-            cmd.Parameters.AddWithValue("@ModifiedDate", updatedArtifact.ModifiedDate);
+            cmd.Parameters.AddWithValue("@ModifiedDate", DateTime.Now);
 
             cmd.ExecuteNonQuery();
         }
-
+        
+        //Delete an Artifact
         public static void DeleteArtifact(int id)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);

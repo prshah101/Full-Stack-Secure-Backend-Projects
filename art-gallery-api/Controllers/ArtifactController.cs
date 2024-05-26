@@ -10,14 +10,14 @@ namespace art_gallery_api.Controllers
     public class ArtifactController : ControllerBase
     {
         
-        [HttpGet]
+        [HttpGet] //Getting All Artifacts
         public IActionResult GetAllArtifacts()
         {
             var artifacts = ArtifactDataAccess.GetAllArtifacts();
             return Ok(artifacts);
         }
 
-        [HttpGet("{id}", Name = "GetArtifact")]
+        [HttpGet("{id}", Name = "GetArtifact")] //Get an Artifact by ID
         public IActionResult GetArtifactById(int id)
         {
             var artifact = ArtifactDataAccess.GetArtifactById(id);
@@ -29,7 +29,7 @@ namespace art_gallery_api.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost] //Add an Artifact
         public IActionResult AddArtifact(Artifact newArtifact)
         {
             try
@@ -44,7 +44,7 @@ namespace art_gallery_api.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")] //Update an Artifact
         public IActionResult UpdateArtifact(int id, Artifact updatedArtifact)
         {
             var existingArtifact = ArtifactDataAccess.GetArtifactById(id);
@@ -64,7 +64,7 @@ namespace art_gallery_api.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}")] //Delete an Artifact
         public IActionResult DeleteArtifact(int id)
         {
             var existingArtifact = ArtifactDataAccess.GetArtifactById(id);
