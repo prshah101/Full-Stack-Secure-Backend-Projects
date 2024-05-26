@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "VqJ7QSkjga6eGpEYzrsdjgbtZGiVUQT/RL3B8LoVvfc=",
+  "Source": "art-gallery.api",
+  "BasePath": "_content/art-gallery.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

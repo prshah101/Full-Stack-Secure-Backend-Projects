@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zy4COopcKJmDFASpUZmeAzOli75y870T++FsmrXjZV2D//pbDmY48QI/gSzmc3xC3zaZUNSER/Nsy/7hDZ69fg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\Documents\\GitHub\\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\\art-gallery-api\\art-gallery.api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}
