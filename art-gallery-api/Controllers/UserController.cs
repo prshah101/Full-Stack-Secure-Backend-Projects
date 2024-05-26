@@ -63,6 +63,12 @@ namespace art_gallery_api.Controllers
                 return NotFound();
             }
 
+            // Check if the user already exists by email
+            if (existingUser.Email == updatedUser.Email)
+            {
+                return Conflict("User with the same email already exists.");
+            }
+
             try
             {
                 UserDataAccess.UpdateUser(id, updatedUser);

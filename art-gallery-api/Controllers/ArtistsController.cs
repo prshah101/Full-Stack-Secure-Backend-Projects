@@ -34,6 +34,13 @@ namespace art_gallery_api.Controllers
                 return BadRequest();
             }
 
+            // Check if the artist already exists by name
+            var existingArtist = ArtistDataAccess.GetAllArtists().FirstOrDefault(a => a.Name == newArtist.Name);
+            if (existingArtist != null)
+            {
+                return Conflict("Artist with the same name already exists.");
+            }
+
             try
             {
                 ArtistDataAccess.AddArtist(newArtist);

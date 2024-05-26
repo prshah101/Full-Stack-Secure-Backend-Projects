@@ -32,6 +32,11 @@ namespace art_gallery_api.Controllers
         [HttpPost] //Add an Artifact
         public IActionResult AddArtifact(Artifact newArtifact)
         {
+            if (newArtifact == null)
+            {
+                return BadRequest();
+            }
+
             try
             {
                 ArtifactDataAccess.AddArtifact(newArtifact);
@@ -52,7 +57,7 @@ namespace art_gallery_api.Controllers
             {
                 return NotFound();
             }
-
+            
             try
             {
                 ArtifactDataAccess.UpdateArtifact(id, updatedArtifact);
