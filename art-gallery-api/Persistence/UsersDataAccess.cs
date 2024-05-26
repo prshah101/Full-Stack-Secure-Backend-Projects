@@ -1,32 +1,107 @@
+using Npgsql;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using art_gallery_api;
 
 namespace art_gallery_api.Persistence
 {
     public static class UserDataAccess
     {
-        // Connection string for connecting to the SQLite database
-        private const string CONNECTION_STRING = "Data Source=robot_controller.db;Version=3;";
+        private const string CONNECTION_STRING = "Host=localhost;Username=postgres;Password=password;Database=diy";
 
-        // A method to retrieve all the robot commands
-        public static List<RobotCommand> GetRobotCommands()
+        public static List<User> GetUsers()
         {
-            var robotCommands = new List<RobotCommand>();
-
-            using var conn = new SQLiteConnection(CONNECTION_STRING);
+            var users = new List<User>();
+            using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
-
-            using var cmd = new SQLiteCommand("SELECT * FROM robotcommand", conn);
+            using var cmd = new NpgsqlCommand("SELECT * FROM users", conn);
             using var dr = cmd.ExecuteReader();
-
             while (dr.Read())
             {
-                var name = reader.GetString(0);
-            }
+                int id = (int)dr["id"];
+                string email = dr["email"].ToString();
+                string firstName = dr["first_name"].ToString();
+                string lastName = dr["last_name"].ToString();
+                string? passwordHash = dr["password_hash"]?.ToString();
+                string? description = dr["description"]?.ToString();
+                string? role = dr["role"]?.ToString();
+                string? membershipLevel = dr["membership_level"]?.ToString();
+                DateTime createdDate = (DateTime)dr["created_date"];
+                DateTime modifiedDate = (DateTime)dr["modified_date"];
 
-            return robotCommands;
+                User user = new User(id, email, firstName, lastName, passwordHash, description, role, membershipLevel, createdDate, modifiedDate);
+                users.Add(user);
+            }
+            return users;
+        }
+
+        public static User? GetUserById(int id)
+        {
+            using var conn = new NpgsqlConnection(CONNECTION_STRING);
+            conn.Open();
+            using var cmd = new NpgsqlCommand("SELECT * FROM users WHERE id = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            using var dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                string email = dr["email"].ToString();
+                string firstName = dr["first_name"].ToString();
+                string lastName = dr["last_name"].ToString();
+                string? passwordHash = dr["password_hash"]?.ToString();
+                string? description = dr["description"]?.ToString();
+                string? role = dr["role"]?.ToString();
+                string? membershipLevel = dr["membership_level"]?.ToString();
+                DateTime createdDate = (DateTime)dr["created_date"];
+                DateTime modifiedDate = (DateTime)dr["modified_date"];
+
+                return new User(id, email, firstName, lastName, passwordHash, description, role, membershipLevel, createdDate, modifiedDate);
+            }
+            return null;
+        }
+        
+
+        public static void AddUser(User user)
+        {
+            using var conn = new NpgsqlConnection(CONNECTION_STRING);
+            conn.Open();
+            using var cmd = new NpgsqlCommand("INSERT INTO users (email, first_name, last_name, password_hash, description, role, membership_level, created_date, modified_date) VALUES (@Email, @FirstName, @LastName, @PasswordHash, @Description, @Role, @MembershipLevel, @CreatedDate, @ModifiedDate)", conn);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", user.LastName);
+            cmd.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
+            cmd.Parameters.AddWithValue("@Description", user.Description ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@Role", user.Role ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@MembershipLevel", user.MembershipLevel ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+            cmd.Parameters.AddWithValue("@ModifiedDate", DateTime.Now);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void UpdateUser(int id, User updatedUser)
+        {
+            using var conn = new NpgsqlConnection(CONNECTION_STRING);
+            conn.Open();
+            using var cmd = new NpgsqlCommand("UPDATE users SET email = @Email, first_name = @FirstName, last_name = @LastName, password_hash = @PasswordHash, description = @Description, role = @Role, membership_level = @MembershipLevel, modified_date = @ModifiedDate WHERE id = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@Email", updatedUser.Email);
+            cmd.Parameters.AddWithValue("@FirstName", updatedUser.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", updatedUser.LastName);
+            cmd.Parameters.AddWithValue("@PasswordHash", updatedUser.PasswordHash);
+            cmd.Parameters.AddWithValue("@Description", updatedUser.Description ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@Role", updatedUser.Role ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@MembershipLevel", updatedUser.MembershipLevel ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@ModifiedDate", DateTime.Now);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void DeleteUser(int id)
+        {
+            using var conn = new NpgsqlConnection(CONNECTION_STRING);
+            conn.Open();
+            using var cmd = new NpgsqlCommand("DELETE FROM users WHERE id = @Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.ExecuteNonQuery();
         }
     }
 }

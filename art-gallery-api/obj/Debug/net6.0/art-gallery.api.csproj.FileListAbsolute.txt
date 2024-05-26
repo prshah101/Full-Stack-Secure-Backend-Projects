@@ -49,3 +49,6 @@ C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SI
 C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\art-gallery-api\obj\Debug\net6.0\art-gallery.api.pdb
 C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\art-gallery-api\obj\Debug\net6.0\art-gallery.api.genruntimeconfig.cache
 C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\art-gallery-api\obj\Debug\net6.0\ref\art-gallery.api.dll
+C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\art-gallery-api\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\art-gallery-api\obj\Debug\net6.0\art-gallery.api.csproj.AssemblyReference.cache
+C:\Users\Dell\Documents\GitHub\Full-Stack-Development-Secure-Backend-Services-SIT331-Projects\art-gallery-api\obj\Debug\net6.0\art-gall.48909FB7.Up2Date
