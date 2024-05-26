@@ -58,6 +58,31 @@ namespace art_gallery_api.Persistence
             return null;
         }
         
+        public static User? GetUserByEmail(string Email)
+        {
+            using var conn = new NpgsqlConnection(CONNECTION_STRING);
+            conn.Open();
+            using var cmd = new NpgsqlCommand("SELECT * FROM users WHERE email = @Email", conn);
+            cmd.Parameters.AddWithValue("@Email", Email);
+            using var dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                int id = (int)dr["id"];
+                string email = dr["email"].ToString();
+                string firstName = dr["first_name"].ToString();
+                string lastName = dr["last_name"].ToString();
+                string? passwordHash = dr["password_hash"]?.ToString();
+                string? description = dr["description"]?.ToString();
+                string? role = dr["role"]?.ToString();
+                string? membershipLevel = dr["membership_level"]?.ToString();
+                DateTime createdDate = (DateTime)dr["created_date"];
+                DateTime modifiedDate = (DateTime)dr["modified_date"];
+
+                return new User(id, email, firstName, lastName, passwordHash, description, role, membershipLevel, createdDate, modifiedDate);
+            }
+            return null;
+        }
+
 
         public static void AddUser(User user)
         {

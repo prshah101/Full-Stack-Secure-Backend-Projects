@@ -44,8 +44,8 @@ namespace art_gallery_api.Controllers
             try
             {
                 UserDataAccess.AddUser(newUser);
-                //User? addedNewUser = UserDataAccess.GetUserByEmail(newUser.Email);
-                return CreatedAtRoute("GetUser", new { id = newUser.Id }, newUser);
+                User? addedNewUser = UserDataAccess.GetUserByEmail(newUser.Email);
+                return CreatedAtRoute("GetUser", new { id = addedNewUser.Id }, addedNewUser);
             }
             catch
             {
