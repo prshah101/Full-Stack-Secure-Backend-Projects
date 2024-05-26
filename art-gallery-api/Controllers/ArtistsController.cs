@@ -9,13 +9,13 @@ namespace art_gallery_api.Controllers
     [Route("api/artists")]
     public class ArtistsController : ControllerBase
     {
-        [HttpGet("")]
+        [HttpGet("")] //Get all artists in the database
         public IEnumerable<Artist> GetAllArtists()
         {
             return ArtistDataAccess.GetAllArtists();
         }
 
-        [HttpGet("{id}", Name = "GetArtist")]
+        [HttpGet("{id}", Name = "GetArtist")] //Get the Artist by their id
         public IActionResult GetArtistById(int id)
         {
             var artist = ArtistDataAccess.GetArtistById(id);
@@ -26,7 +26,7 @@ namespace art_gallery_api.Controllers
             return Ok(artist);
         }
 
-        [HttpPost]
+        [HttpPost] //Add an Artist
         public IActionResult AddArtist(Artist newArtist)
         {
             if (newArtist == null)
@@ -46,7 +46,7 @@ namespace art_gallery_api.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")] //Update an Artist
         public IActionResult UpdateArtist(int id, Artist updatedArtist)
         {
             var existingArtist = ArtistDataAccess.GetArtistById(id);
@@ -66,7 +66,7 @@ namespace art_gallery_api.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}")] //Delete an Artist
         public IActionResult DeleteArtist(int id)
         {
             var artistToRemove = ArtistDataAccess.GetArtistById(id);
