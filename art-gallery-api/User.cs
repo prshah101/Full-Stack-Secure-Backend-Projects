@@ -8,12 +8,12 @@ public class User
     public string? PasswordHash { get; set; }
     public string? Description { get; set; }
     public string? Role { get; set; }
-    public string? Membership { get; set; }
+    public string? MembershipLevel { get; set; }
     public DateTime CreatedDate { get; set; }
     public DateTime ModifiedDate { get; set; }
 
     // Constructor
-    public User(int id, string email, string firstName, string lastName, string passwordHash, string? description, string? role, string? membership, DateTime createdDate, DateTime modifiedDate)
+    public User(int id, string email, string firstName, string lastName, string passwordHash, string? description, string? role, string? membershipLevel, DateTime createdDate, DateTime modifiedDate)
     {
         Id = id;
         Email = email;
@@ -22,7 +22,7 @@ public class User
         PasswordHash = passwordHash;
         Description = description;
         Role = role;
-        Membership = membership;
+        MembershipLevel = membershipLevel;
         CreatedDate = createdDate;
         ModifiedDate = modifiedDate;
     }
@@ -98,14 +98,14 @@ public class User
         return Role;
     }
 
-    public void SetMembership(string membership)
+    public void SetMembership(string membershipLevel)
     {
-        Membership = membership;
+        MembershipLevel = membershipLevel;
     }
 
     public string GetMembership()
     {
-        return Membership;
+        return MembershipLevel;
     }
 
     public void SetCreatedDate(DateTime createdDate)

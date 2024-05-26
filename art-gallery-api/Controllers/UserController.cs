@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace robot_controller_api.Controllers;
+using art_gallery_api.Persistence;
+namespace art_gallery_api.Controllers;
 
 [ApiController]
 [Route("api/users")]
@@ -14,8 +15,8 @@ public class UserController : ControllerBase
 
 
     [HttpGet]//4//return all commands as JSON 
-    public IEnumerable<User> GetAllRobotCommands()
+    public IEnumerable<User> GetAllUsers()
     {
-        return _commands;
+        return UsersDataAccess.GetAllUsers()
     }
 }
