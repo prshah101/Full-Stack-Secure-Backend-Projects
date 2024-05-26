@@ -9,13 +9,13 @@ namespace art_gallery_api.Controllers
     [Route("api/users")]
     public class UsersController : ControllerBase
     {
-        [HttpGet("")]
+        [HttpGet("")] //Get a list of all Users
         public IEnumerable<User> GetAllUsers()
         {
             return UserDataAccess.GetUsers();
         }
 
-        [HttpGet("{id}", Name = "GetUser")]
+        [HttpGet("{id}", Name = "GetUser")] //Get a User by Id
         public IActionResult GetUserById(int id)
         {
             var user = UserDataAccess.GetUserById(id);
@@ -26,8 +26,8 @@ namespace art_gallery_api.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
-        public IActionResult AddUser(User newUser)
+        [HttpPost] //Add a User
+        public IActionResult AddUser(User newUser) 
         {
             if (newUser == null)
             {
@@ -74,7 +74,7 @@ namespace art_gallery_api.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}")] //Delete a User
         public IActionResult DeleteUser(int id)
         {
             var userToRemove = UserDataAccess.GetUserById(id);

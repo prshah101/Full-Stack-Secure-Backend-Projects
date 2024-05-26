@@ -8,6 +8,7 @@ namespace art_gallery_api.Persistence
     {
         private const string CONNECTION_STRING = "Host=localhost;Username=postgres;Password=password;Database=diy";
 
+        //Get a list of all Users
         public static List<User> GetUsers()
         {
             var users = new List<User>();
@@ -34,7 +35,7 @@ namespace art_gallery_api.Persistence
             return users;
         }
 
-        public static User? GetUserById(int id)
+        public static User? GetUserById(int id) //Get a User by Id
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
@@ -58,7 +59,7 @@ namespace art_gallery_api.Persistence
             return null;
         }
         
-        public static User? GetUserByEmail(string Email)
+        public static User? GetUserByEmail(string Email) //Get a User by Email
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
@@ -84,7 +85,7 @@ namespace art_gallery_api.Persistence
         }
 
 
-        public static void AddUser(User user)
+        public static void AddUser(User user) //Add a User
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
             conn.Open();
@@ -102,6 +103,7 @@ namespace art_gallery_api.Persistence
             cmd.ExecuteNonQuery();
         }
 
+        //Update a User
         public static void UpdateUser(int id, User updatedUser)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
@@ -120,6 +122,7 @@ namespace art_gallery_api.Persistence
             cmd.ExecuteNonQuery();
         }
 
+        //Delete a User
         public static void DeleteUser(int id)
         {
             using var conn = new NpgsqlConnection(CONNECTION_STRING);
